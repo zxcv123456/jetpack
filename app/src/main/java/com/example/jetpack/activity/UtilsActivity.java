@@ -48,5 +48,11 @@ public class UtilsActivity extends AppCompatActivity {
                 JumpUtils.getInstance().jumpToX7APPWithURL(UtilsActivity.this);
             }
         });
+        binding.jumpToBottomNavigationTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                JumpUtils.getInstance().generalJump(UtilsActivity.this,BottomNavigaionActivity.class);
+            }
+        });
     }
 }

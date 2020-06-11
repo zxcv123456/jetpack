@@ -2,6 +2,10 @@
     <string name="app_name">jetpack</string>
     <string name="plus">加</string>
     <string name="sub">减</string>
-    <string name="jump">跳转</string>
+    <string name="jump">跳转到其他类</string>
     <string name="jumpToUtilsActivity">跳转到工具界面</string>
+    <string name="title_activity_bottom_navigaion">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
