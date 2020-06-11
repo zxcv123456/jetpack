@@ -36,6 +36,16 @@
             android:text="跳转到bottomNavigation"
             android:textColor="#ffffff"
             android:textSize="24dp" />
+        <TextView
+            android:id="@+id/jump_to_navigation_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#12cdb0"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="跳转到Navigation"
+            android:textColor="#ffffff"
+            android:textSize="24dp" />
 
     </LinearLayout>
 </layout>

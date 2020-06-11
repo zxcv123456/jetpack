@@ -42,9 +42,6 @@ public class UtilsActivity extends AppCompatActivity {
         binding.jumpUtilsTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                JumpUtils.getInstance().jumpToOtherAppActivity(MainActivity.this,packageName,jumpActivityName);
-//                JumpUtils.getInstance().jumToOtherApp(MainActivity.this, comTencentMm);
-//                JumpUtils.getInstance().jumpToX7APP(UtilsActivity.this);
                 JumpUtils.getInstance().jumpToX7APPWithURL(UtilsActivity.this);
             }
         });
@@ -52,6 +49,12 @@ public class UtilsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 JumpUtils.getInstance().generalJump(UtilsActivity.this,BottomNavigaionActivity.class);
+            }
+        });
+        binding.jumpToNavigationTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                JumpUtils.getInstance().generalJump(UtilsActivity.this,NavigationActivity.class);
             }
         });
     }

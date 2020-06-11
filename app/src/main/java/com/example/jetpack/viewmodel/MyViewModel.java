@@ -1,8 +1,5 @@
 package com.example.jetpack.viewmodel;
 
-import android.content.ComponentName;
-import android.content.Intent;
-
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -34,7 +31,7 @@ public class MyViewModel extends ViewModel {
             number = new MutableLiveData<>();
             number.setValue(0);
         }
-        number.setValue(number.getValue() + n);
+        number.setValue(number.getValue() == null ? 0 : number.getValue() + n);
     }
 
     public void sub(int n) {
@@ -42,7 +39,7 @@ public class MyViewModel extends ViewModel {
             number = new MutableLiveData<>();
             number.setValue(0);
         }
-        number.setValue(number.getValue() - n);
+        number.setValue(number.getValue() == null ? 0 : number.getValue() - n);
     }
 
 }
