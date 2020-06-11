@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data class="ActivityBinding">
+
         <variable
             name="model"
             type="com.example.jetpack.viewmodel.MyViewModel" />
@@ -13,7 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".activity.MainActivity">
 
         <TextView
             android:id="@+id/show_number_tv"
@@ -34,6 +35,7 @@
             android:layout_marginLeft="104dp"
             android:layout_marginTop="308dp"
             android:background="#12cdb0"
+            android:onClick="@{()->model.add(1)}"
             android:padding="10dp"
             android:text="@string/plus"
             android:textColor="#ffffff"
@@ -48,12 +50,25 @@
             android:layout_marginEnd="89dp"
             android:layout_marginRight="89dp"
             android:background="#ff0055"
+            android:onClick="@{()->model.sub(1)}"
             android:padding="10dp"
             android:text="@string/sub"
             android:textColor="#ffffff"
             android:textSize="24sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/plus_tv"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/jump_to_market_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="56dp"
+            android:text="@string/jumpToUtilsActivity"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
