@@ -48,7 +48,7 @@ public class UtilsActivity extends AppCompatActivity {
         binding.jumpToBottomNavigationTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                JumpUtils.getInstance().generalJump(UtilsActivity.this,BottomNavigaionActivity.class);
+                JumpUtils.getInstance().generalJump(UtilsActivity.this, BottomNavigationActivity.class);
             }
         });
         binding.jumpToNavigationTv.setOnClickListener(new View.OnClickListener() {

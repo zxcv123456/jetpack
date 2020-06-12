@@ -116,6 +116,7 @@ public class JumpUtils {
         //需要判断不为null才可以
         Intent intent = activity.getPackageManager().getLaunchIntentForPackage(packageName);
         if (intent!=null){
+            //使用flags是用来拉起第三方应用使用的方式
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             activity.startActivity(intent);
         }

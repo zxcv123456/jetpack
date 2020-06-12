@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".activity.NavigationActivity"/>
         <activity
-            android:name=".activity.BottomNavigaionActivity"
+            android:name=".activity.BottomNavigationActivity"
             android:label="@string/title_activity_bottom_navigaion" />
         <activity android:name=".activity.UtilsActivity" />
         <activity android:name=".activity.MainActivity">

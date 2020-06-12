@@ -31,6 +31,7 @@ public class Navigation2Fragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        //fragment使用DataBinding的方式
         binding = DataBindingUtil.inflate(inflater,R.layout.navigation2_fragment,container,false);
         return binding.getRoot();
     }
