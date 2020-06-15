@@ -5,8 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.jetpack.R;
+import com.example.jetpack.bean.GalleryBean;
 import com.example.jetpack.databinding.GalleryItemBinding;
 
+import java.util.List;
 import java.util.zip.Inflater;
 
 import androidx.annotation.NonNull;
@@ -15,17 +17,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder> {
 
+    private List<GalleryBean.HitsBean> beans;
+    public GalleryAdapter(List<GalleryBean.HitsBean> hits) {
+        super();
+        beans = hits;
+    }
+
     @NonNull
     @Override
     public GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //使用layoutInflater来生成inflater
-        GalleryItemBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()).inflate(R.layout.gallery_item,null,false),parent,false);
+        GalleryItemBinding binding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()),R.layout.gallery_item,null,false);
         return new GalleryViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull GalleryViewHolder holder, int position) {
-
+        if (beans.size()>position){
+            holder.getBinding().setModel(beans.get(position));
+        }
     }
 
     @Override

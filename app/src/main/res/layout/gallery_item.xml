@@ -6,7 +6,7 @@
     <data>
         <variable
             name="model"
-            type="com.example.jetpack.viewmodel.GalleryItemViewModel" />
+            type="com.example.jetpack.bean.GalleryBean.HitsBean" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -21,7 +21,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                imageUrl="@{model.mutableLiveData.previewURL}"
+                imageUrl="@{model.previewURL}"
                 tools:srcCompat="@tools:sample/avatars" />
         </io.supercharge.shimmerlayout.ShimmerLayout>
     </androidx.cardview.widget.CardView>
