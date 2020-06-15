@@ -18,9 +18,12 @@ import androidx.recyclerview.widget.RecyclerView;
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder> {
 
     private List<GalleryBean.HitsBean> beans;
-    public GalleryAdapter(List<GalleryBean.HitsBean> hits) {
+    public GalleryAdapter() {
         super();
+    }
+    public void refresh(List<GalleryBean.HitsBean> hits){
         beans = hits;
+        notifyDataSetChanged();
     }
 
     @NonNull

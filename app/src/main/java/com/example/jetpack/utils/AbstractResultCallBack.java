@@ -37,7 +37,7 @@ public abstract class AbstractResultCallBack {
      * @param call
      * @param response
      */
-    public abstract void onSuccess(Call call, Response response);
+    public abstract void onSuccess(Call call, String response);
     /**
      * 网络请求失败的回调,非抽象的，子类可实现可不实现，
      * 通常未对失败进行处理，所以没必要写成抽象，强制实现

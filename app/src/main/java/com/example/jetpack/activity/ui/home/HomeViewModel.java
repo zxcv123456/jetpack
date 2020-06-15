@@ -28,10 +28,12 @@ public class HomeViewModel extends ViewModel {
     public void getGalleryData(Map<String,String> map){
         OkhttpUtils.getInstance().getAsynHttp(map, new AbstractResultCallBack() {
             @Override
-            public void onSuccess(Call call, Response response) {
+            public void onSuccess(Call call, String response) {
+                //需要的是response.body才是返回的需要的数据
                 //使用谷歌的Gson进行序列化，给livedata设置value
                 Gson jsonObject = new Gson();
-                galleryBeanMutableLiveData.setValue(jsonObject.fromJson(response.toString(),GalleryBean.class));
+                galleryBeanMutableLiveData.setValue(jsonObject.fromJson(response,GalleryBean.class));
+
             }
         });
     }

@@ -9,6 +9,7 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 /**
  * ================================================
@@ -55,7 +56,10 @@ public class OkhttpUtils {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                callBack.onSuccess(call,response);
+                ResponseBody body = response.body ();
+                byte b[] = body.bytes ();
+                String result = new String (b);
+                callBack.onSuccess(call,result);
             }
         });
     }

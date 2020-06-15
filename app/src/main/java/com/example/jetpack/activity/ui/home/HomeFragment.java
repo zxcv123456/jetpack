@@ -8,7 +8,11 @@ import android.widget.TextView;
 
 import com.example.jetpack.R;
 import com.example.jetpack.adapter.GalleryAdapter;
+import com.example.jetpack.bean.GalleryBean;
 import com.example.jetpack.databinding.FragmentHomeBinding;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,10 +20,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -44,9 +46,18 @@ public class HomeFragment extends Fragment {
         binding.setLifecycleOwner(this);
         binding.rc.setLayoutManager(new GridLayoutManager(getContext(),2, RecyclerView.VERTICAL,false));
         binding.rc.setItemAnimator(new DefaultItemAnimator());
-        homeViewModel.getGalleryData();
+        Map<String,String> map = new HashMap<>();
+        map.put("url","https://pixabay.com/api/?key=17004424-6837e1cd50fe5f1d15dcaa0da&q=yellow+flowers&image_type=photo");
+        homeViewModel.getGalleryData(map);
         if (adapter == null){
-            adapter =
+            adapter = new GalleryAdapter();
         }
+        binding.rc.setAdapter(adapter);
+        homeViewModel.getGalleryBeanMutableLiveData().observe(this, new Observer<GalleryBean>() {
+            @Override
+            public void onChanged(GalleryBean galleryBean) {
+                adapter.refresh(galleryBean.getHits());
+            }
+        });
     }
 }
