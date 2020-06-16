@@ -8,6 +8,7 @@ import com.example.jetpack.R;
 import com.example.jetpack.bean.GalleryBean;
 import com.example.jetpack.databinding.GalleryItemBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
 
@@ -20,6 +21,9 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
     private List<GalleryBean.HitsBean> beans;
     public GalleryAdapter() {
         super();
+        if (beans == null){
+            beans = new ArrayList<>();
+        }
     }
     public void refresh(List<GalleryBean.HitsBean> hits){
         beans = hits;
@@ -43,7 +47,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
 
     @Override
     public int getItemCount() {
-        return 0;
+        return beans.size();
     }
 
     public static class GalleryViewHolder extends RecyclerView.ViewHolder{
