@@ -53,7 +53,7 @@ public class HomeFragment extends Fragment {
             adapter = new GalleryAdapter();
         }
         binding.rc.setAdapter(adapter);
-        homeViewModel.getGalleryBeanMutableLiveData().observe(this, new Observer<GalleryBean>() {
+        homeViewModel.getGalleryBeanMutableLiveData().observe(getViewLifecycleOwner(), new Observer<GalleryBean>() {
             @Override
             public void onChanged(GalleryBean galleryBean) {
                 adapter.refresh(galleryBean.getHits());

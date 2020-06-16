@@ -1,6 +1,7 @@
 package com.example.jetpack.activity.ui.home;
 
 import android.app.Activity;
+import android.widget.Toast;
 
 import com.example.jetpack.bean.GalleryBean;
 import com.example.jetpack.utils.AbstractResultCallBack;
@@ -9,6 +10,7 @@ import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.Map;
 
 import androidx.lifecycle.LiveData;
@@ -42,6 +44,17 @@ public class HomeViewModel extends ViewModel {
                     }
                 });
 
+            }
+
+            @Override
+            public void onFail(Call call, final IOException e) {
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(activity,e.toString(),Toast.LENGTH_SHORT).show();
+                    }
+                });
+                super.onFail(call, e);
             }
         });
     }
