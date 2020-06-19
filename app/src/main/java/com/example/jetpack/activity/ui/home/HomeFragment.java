@@ -46,9 +46,10 @@ public class HomeFragment extends Fragment {
         binding.setLifecycleOwner(this);
         binding.rc.setLayoutManager(new GridLayoutManager(getContext(),2, RecyclerView.VERTICAL,false));
         binding.rc.setItemAnimator(new DefaultItemAnimator());
-        Map<String,String> map = new HashMap<>();
-        map.put("url","https://pixabay.com/api/?key=17004424-6837e1cd50fe5f1d15dcaa0da&q=yellow+flowers&image_type=photo");
-        homeViewModel.getGalleryData(getActivity(),map);
+//        Map<String,String> map = new HashMap<>();
+//        map.put("url","https://pixabay.com/api/?key=17004424-6837e1cd50fe5f1d15dcaa0da&q=sexy+girl&image_type=photo");
+//        homeViewModel.getGalleryData(getActivity(),map);
+        homeViewModel.setData(getActivity());
         if (adapter == null){
             adapter = new GalleryAdapter();
         }
