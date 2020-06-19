@@ -10,6 +10,7 @@ import android.view.View;
 import com.example.jetpack.R;
 import com.example.jetpack.databinding.UtilsActivityBinding;
 import com.example.jetpack.utils.JumpUtils;
+import com.example.jetpack.utils.VideoAttributesUtils;
 import com.example.jetpack.viewmodel.UtilsViewModel;
 
 public class UtilsActivity extends AppCompatActivity {
@@ -55,6 +56,13 @@ public class UtilsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 JumpUtils.getInstance().generalJump(UtilsActivity.this,NavigationActivity.class);
+            }
+        });
+        binding.videoTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                VideoAttributesUtils.getInstance().getVideoWidthAndHeight(UtilsActivity.this);
+                VideoAttributesUtils.getInstance().videoOrientation(UtilsActivity.this);
             }
         });
     }
