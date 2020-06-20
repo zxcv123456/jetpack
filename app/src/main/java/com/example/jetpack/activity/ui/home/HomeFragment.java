@@ -52,11 +52,11 @@ public class HomeFragment extends Fragment {
         binding.swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                String [] type = new String[]{"girl","woman","car","seas","flower","sexy"};
-                int i = (int) (Math.random()*type.length);
+                String[] type = new String[]{"girl", "car", "seas", "flower",};
+                int i = (int) (Math.random() * type.length);
                 String requestType = type[i];
-                map.put("url", "https://pixabay.com/api/?key=17004424-6837e1cd50fe5f1d15dcaa0da&q="+requestType+"&image_type=photo");
-                homeViewModel.getGalleryData(getActivity(),map);
+                map.put("url", "https://pixabay.com/api/?key=17004424-6837e1cd50fe5f1d15dcaa0da&q=" + requestType + "&image_type=photo");
+                homeViewModel.getGalleryData(getActivity(), map);
             }
         });
         if (adapter == null) {
@@ -70,7 +70,7 @@ public class HomeFragment extends Fragment {
         homeViewModel.getGalleryBeanMutableLiveData().observe(getViewLifecycleOwner(), new Observer<GalleryBean>() {
             @Override
             public void onChanged(GalleryBean galleryBean) {
-                if (binding.swipeRefreshLayout.isRefreshing()){
+                if (binding.swipeRefreshLayout.isRefreshing()) {
                     binding.swipeRefreshLayout.setRefreshing(false);
                 }
                 adapter.refresh(galleryBean.getHits());

@@ -72,6 +72,7 @@ public class OkhttpUtils {
     /**
      * 使用异步post请求的
      * 里面应该已经做了线程切换了，需要测试一下
+     *
      * @param map
      * @param callBack
      */
@@ -84,19 +85,19 @@ public class OkhttpUtils {
         for (String key : keys) {
             String value = map.get(key);
             if (StrUtils.IsKong(value)) {
-                LogUtils.e(url+"接口的参数key所传的value为空");
+                LogUtils.e(url + "接口的参数key所传的value为空");
                 return;
             }
-            if (!"url".equals(key)){
+            if (!"url".equals(key)) {
                 assert value != null;
-                requestBodybuilder.add(key,value);
+                requestBodybuilder.add(key, value);
             }
         }
         assert url != null;
         Request.Builder requestBuilder = new Request.Builder()
                 .url(url)
                 //使用这个添加头信息
-                .addHeader("user_agent","xfp");
+                .addHeader("user_agent", "xfp");
 
         final Request request = requestBuilder.post(requestBodybuilder.build()).build();
         Call call = okHttpClient.newCall(request);
@@ -104,7 +105,7 @@ public class OkhttpUtils {
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                callBack.onFail(call,e);
+                callBack.onFail(call, e);
             }
 
             @Override
@@ -113,8 +114,8 @@ public class OkhttpUtils {
                     ResponseBody body = response.body();
                     byte b[] = body.bytes();
                     String result = new String(b);
-                    callBack.onSuccess(call,result);
-                }catch (Exception e){
+                    callBack.onSuccess(call, result);
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
