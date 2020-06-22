@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.didi.dokit'
 
 android {
     compileSdkVersion 29
@@ -10,6 +11,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
     }
     dataBinding {
@@ -20,6 +22,45 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dokitExt {
+    //dokit 插件开关
+    dokitPluginSwitch true
+    //通用设置
+    comm {
+        //地图经纬度开关
+        gpsSwitch true
+        //网络开关
+        networkSwitch true
+        //大图开关
+        bigImgSwitch true
+    }
+
+    slowMethod {
+        //0:默认模式 打印函数调用栈 需添加指定入口  默认为application onCreate 和attachBaseContext
+        //1:普通模式 运行时打印某个函数的耗时 全局业务代码函数插入 已弃用
+        strategy 1
+        //函数功能开关 已弃用
+        methodSwitch false
+
+        //调用栈模式配置
+        stackMethod {
+            //默认值为 5ms 小于该值的函数在调用栈中不显示
+            thresholdTime 5
+            //调用栈函数入口
+            enterMethods = ["com.didichuxing.doraemondemo.MainDebugActivity.test1"]
+        }
+        //普通模式配置
+        normalMethod {
+            //默认值为 500ms 小于该值的函数在运行时不会在控制台中被打印
+            thresholdTime 100
+            //需要针对函数插装的包名
+            packageNames = ["com.didichuxing.doraemondemo"]
+            //不需要针对函数插装的包名&类名
+            methodBlacklist = ["com.didichuxing.doraemondemo.dokit"]
         }
     }
 }
@@ -47,6 +88,10 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'io.supercharge:shimmerlayout:2.1.0'
     implementation 'com.github.chrisbanes.photoview:library:1.2.4'
-
+    debugImplementation 'com.didichuxing.doraemonkit:doraemonkit:3.1.8'
+    releaseImplementation 'com.didichuxing.doraemonkit:doraemonkit-no-op:3.1.8'
+    debugImplementation 'com.didichuxing.doraemonkit:doraemonkit-weex:3.1.8'
+    debugImplementation 'com.didichuxing.doraemonkit:doraemonkit-leakcanary:3.1.8'
+    implementation 'com.android.support:multidex:1.0.1'
 
 }

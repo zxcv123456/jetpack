@@ -1,8 +1,10 @@
 package com.example.jetpack.adapter;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +29,8 @@ import java.util.zip.Inflater;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder> {
@@ -63,6 +67,10 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
             holder.getBinding().shimmerLayout.setShimmerAngle(0);
             holder.getBinding().shimmerLayout.startShimmerAnimation();
             holder.getBinding().setModel(beans.get(position));
+            //可以通过bundle传递数据过去,通过在action后面添加参数
+            Bundle bundle = new Bundle();
+            bundle.putString("photo_url", beans.get(position).getLargeImageURL());
+            holder.getBinding().getRoot().setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_homeFragment_to_photoFragment, bundle));
             Glide.with(holder.itemView)
                     .load(beans.get(position).getLargeImageURL())
                     /*

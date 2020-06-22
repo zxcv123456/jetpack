@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 
 import com.example.jetpack.R;
+import com.example.jetpack.utils.LogUtils;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,12 +23,18 @@ public class BottomNavigationActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bottom_navigaion);
-        //BottomNavigationView,相关的menu，可以直接在视图界面设置menu
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        //这里NavController使用的是有activity，和host的构造方法
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupWithNavController(navView, navController);
+        try {
+            //navhost里面要设置一个start的不然会报错
+            setContentView(R.layout.activity_bottom_navigaion);
+            //BottomNavigationView,相关的menu，可以直接在视图界面设置menu
+            BottomNavigationView navView = findViewById(R.id.nav_view);
+            //这里NavController使用的是有activity，和host的构造方法
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+            NavigationUI.setupWithNavController(navView, navController);
+        }catch (Exception e){
+            e.printStackTrace();
+            LogUtils.e(e);
+        }
     }
 
 }
