@@ -65,5 +65,11 @@ public class UtilsActivity extends AppCompatActivity {
                 VideoAttributesUtils.getInstance().videoOrientation(UtilsActivity.this);
             }
         });
+        binding.eventBusResearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 }
