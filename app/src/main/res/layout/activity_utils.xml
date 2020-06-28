@@ -57,5 +57,16 @@
             android:textColor="#ffffff"
             android:textSize="24dp" />
 
+        <TextView
+            android:id="@+id/event_bus_research"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#12cdb0"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="EventBus研究"
+            android:textColor="#ffffff"
+            android:textSize="24dp" />
+
     </LinearLayout>
 </layout>
