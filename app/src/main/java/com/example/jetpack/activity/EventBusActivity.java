@@ -24,6 +24,8 @@ public class EventBusActivity extends AppCompatActivity {
      * {@link com.example.jetpack.activity.UtilsActivity} 使用这个链接到具体的类
      * {@link UtilsActivity #name} 不需要写绝对路径也可以
      * {@link #testMode}  链接到具体的变量
+     * {@link # https://www.cnblogs.com/dolphin0520/p/3920373.html } 链接到具体的网址
+     *
      */
     public int testMode;
 

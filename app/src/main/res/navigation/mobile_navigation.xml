@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.jetpack.activity.ui.notifications.NotificationsFragment"
+        android:name="com.example.jetpack.activity.ui.notifications.SpeakToTextFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 

@@ -15,7 +15,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 
-public class NotificationsFragment extends Fragment {
+public class SpeakToTextFragment extends Fragment {
 
     private NotificationsViewModel notificationsViewModel;
 
@@ -33,5 +33,9 @@ public class NotificationsFragment extends Fragment {
             }
         });
         return root;
+    }
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
     }
 }
